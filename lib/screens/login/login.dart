@@ -46,7 +46,16 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: GetBuilder<LoginController>(
                       init: LoginController(),
                       builder: (controller) {
-                        return Text(controller.title);
+                        print("GetBuilder build: title1");
+                        return Text(controller.title1);
+                      }),
+                ),
+                Container(
+                  child: GetX<LoginController>(
+                      init: LoginController(),
+                      builder: (controller) {
+                        print("GetX build: title2");
+                        return Text(controller.title2.value);
                       }),
                 ),
                 Container(
