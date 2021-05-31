@@ -59,6 +59,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       }),
                 ),
                 Container(
+                  child: Obx(() {
+                    print("Obx build title 3");
+                    return Text(Get.find<LoginController>().title3.value);
+                  }),
+                ),
+                Container(
                   margin: EdgeInsets.only(
                     top: Get.height * 0.1,
                   ),

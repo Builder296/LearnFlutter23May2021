@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 class LoginController extends GetxController {
   String title1 = "get builder title";
   var title2 = RxString('"get x title"');
+  var title3 = RxString('"obx title"');
 
   @override
   void onInit() {
