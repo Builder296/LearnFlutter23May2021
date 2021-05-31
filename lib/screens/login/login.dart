@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print("build");
+    print("build login screen");
     return Scaffold(
       backgroundColor: AppColors.red,
       body: Container(
@@ -51,6 +51,14 @@ class _LoginScreenState extends State<LoginScreen> {
                       }),
                 ),
                 Container(
+                  child: GetBuilder<LoginController>(
+                      init: LoginController(),
+                      builder: (controller) {
+                        print("GetBuilder build: title4");
+                        return Text(controller.title4);
+                      }),
+                ),
+                Container(
                   child: GetX<LoginController>(
                       init: LoginController(),
                       builder: (controller) {
@@ -60,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   child: Obx(() {
-                    print("Obx build title 3");
+                    print("Obx build: title3");
                     return Text(Get.find<LoginController>().title3.value);
                   }),
                 ),
