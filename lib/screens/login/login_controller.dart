@@ -8,7 +8,6 @@ class LoginController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
     super.onInit();
     Future.delayed(Duration(seconds: 3)).then((value) {
       print("delay success");
