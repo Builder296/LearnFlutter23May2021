@@ -48,6 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
       It has difference hash code.
     */
 
+    Get.putAsync(() async {
+      var userService = UserService();
+      await userService.getUser2();
+      return userService;
+    });
+
     // use with Get.lazyPut
     // var controller = Get.find<LoginController>();
 
