@@ -27,16 +27,29 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   void initState() {
     super.initState();
-    Get.lazyPut(() => LoginController());
-    print("lazyPut LoginController");
+    // Get.lazyPut(() => LoginController());
+    Get.create(() => LoginController());
+    print("create LoginController");
   }
 
   @override
   Widget build(BuildContext pucontext) {
     print("build login screen");
 
-    // use with Get.lazyPut
+    // create
     var controller = Get.find<LoginController>();
+    var controller2 = Get.find<LoginController>();
+
+    print("controller 1 " + controller.hashCode.toString());
+    print("controller 2 " + controller2.hashCode.toString());
+    /* ex.
+      controller 1 865701424
+      controller 2 710774014
+      It has difference hash code.
+    */
+
+    // use with Get.lazyPut
+    // var controller = Get.find<LoginController>();
 
     // Get.put
     // var controller = Get.put(LoginController());
@@ -80,7 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   child: Obx(() {
                     print("Obx build: title3");
-                    return Text(controller.title3.value);
+                    return Text(controller2.title3.value);
                   }),
                 ),
                 Container(
