@@ -4,18 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {
-  final String fname;
-  final String lname;
-  final String email;
-  HomeScreen({
-    Key? key,
-    required this.fname,
-    required this.lname,
-    required this.email,
-  }) : super(key: key);
+  // final String fname;
+  // final String lname;
+  // final String email;
+  // HomeScreen({
+  //   Key? key,
+  //   required this.fname,
+  //   required this.lname,
+  //   required this.email,
+  // }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+
+    var arguments = Get.arguments;
+    final String fname = arguments['fname'];
+    final String lname = arguments['lname'];
+    final String email = arguments['email'];
+
     return Scaffold(
       backgroundColor: AppColors.red,
       body: Container(

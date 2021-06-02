@@ -1,3 +1,4 @@
+import 'package:example_flutter1/screens/home.dart';
 import 'package:example_flutter1/screens/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: GoogleFonts.prompt().fontFamily,
       ),
-      home: LoginScreen(),
+      // home: LoginScreen(),
+      initialRoute: '/login',
+      getPages: [
+        GetPage(name: "/login", page: () => LoginScreen()),
+        GetPage(
+          name: "/home",
+          page: () => HomeScreen(),
+        )
+      ],
     );
   }
 }
