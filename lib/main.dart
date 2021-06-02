@@ -24,7 +24,10 @@ class MyApp extends StatelessWidget {
         GetPage(
             name: "/login",
             page: () => LoginScreen(),
-            binding: LoginBinding(), // use binding
+            binding: BindingsBuilder(() {
+              print("put login controller 2");
+              Get.put(LoginController());
+            }),
         ),
         GetPage(
           name: "/home",
@@ -35,10 +38,11 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class LoginBinding extends Bindings { // create binding class
+// Not necessary
+class LoginBinding extends Bindings {
   @override
   void dependencies() {
-    print("put logincontroller");
+    print("put login controller 1");
     Get.put(LoginController());
   }
 }
