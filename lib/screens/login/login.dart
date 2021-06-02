@@ -24,13 +24,13 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   Language languageSelected = Language.th;
 
-  @override
-  void initState() {
-    super.initState();
-    // Get.lazyPut(() => LoginController());
-    Get.create(() => LoginController());
-    print("create LoginController");
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   // Get.lazyPut(() => LoginController());
+  //   Get.create(() => LoginController());
+  //   print("create LoginController");
+  // }
 
   @override
   Widget build(BuildContext pucontext) {
