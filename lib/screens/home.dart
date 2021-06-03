@@ -9,8 +9,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var arguments = Get.arguments;
-    final String fname = arguments['fname'];
-    final String lname = arguments['lname'];
+    final String name = arguments['name'];
     final String email = arguments['email'];
 
     return Scaffold(
@@ -35,7 +34,7 @@ class HomeScreen extends StatelessWidget {
                 top: Get.height * 0.1,
               ),
               child: Text(
-                "สวัสดีคุณ$fname $lname",
+                "สวัสดีคุณ$name",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.yellow.shade700,

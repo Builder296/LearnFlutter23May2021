@@ -1,6 +1,5 @@
 import 'package:example_flutter1/const/color.dart';
 import 'package:example_flutter1/models/user_model.dart';
-import 'package:example_flutter1/models/user_model2.dart';
 import 'package:example_flutter1/services/user_service.dart';
 import 'package:example_flutter1/widgets/logo.dart';
 import 'package:flutter/material.dart';
@@ -170,16 +169,9 @@ class _LoginScreenState extends State<LoginScreen> {
       onPressed: () async {
         try {
           UserModel user = await UserService().getUser(); // call service
-          UserModel2 user2 = await UserService().getUser2(); // call service
-          // Get.to(HomeScreen(
-          //   fname: user.fname,
-          //   lname: user.lname!,
-          //   email: user2.email,
-          // ));
           Get.toNamed('/home', arguments: {
-            "fname": user.fname,
-            "lname": user.lname!,
-            "email": user2.email,
+            "name": user.name,
+            "email": user.email,
           });
         } catch (error) {
           print("getUser: $error");
