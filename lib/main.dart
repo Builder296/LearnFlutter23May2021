@@ -18,7 +18,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: GoogleFonts.prompt().fontFamily,
       ),
-      // home: LoginScreen(),
       initialRoute: '/login',
       getPages: [
         GetPage(
@@ -35,14 +34,5 @@ class MyApp extends StatelessWidget {
         )
       ],
     );
-  }
-}
-
-// Not necessary
-class LoginBinding extends Bindings {
-  @override
-  void dependencies() {
-    print("put login controller 1");
-    Get.put(LoginController());
   }
 }

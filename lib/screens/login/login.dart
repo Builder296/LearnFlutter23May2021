@@ -1,13 +1,10 @@
 import 'package:example_flutter1/const/color.dart';
 import 'package:example_flutter1/models/user_model.dart';
 import 'package:example_flutter1/models/user_model2.dart';
-import 'package:example_flutter1/screens/home.dart';
 import 'package:example_flutter1/services/user_service.dart';
 import 'package:example_flutter1/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'login_controller.dart';
 
 enum Language {
   th,
@@ -24,41 +21,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   Language languageSelected = Language.th;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   // Get.lazyPut(() => LoginController());
-  //   Get.create(() => LoginController());
-  //   print("create LoginController");
-  // }
-
   @override
-  Widget build(BuildContext pucontext) {
+  Widget build(BuildContext putContext) {
     print("build login screen");
-
-    // create
-    var controller = Get.find<LoginController>();
-    var controller2 = Get.find<LoginController>();
-
-    print("controller 1 " + controller.hashCode.toString());
-    print("controller 2 " + controller2.hashCode.toString());
-    /* ex.
-      controller 1 865701424
-      controller 2 710774014
-      It has difference hash code.
-    */
-
-    Get.putAsync(() async {
-      var userService = UserService();
-      await userService.getUser2();
-      return userService;
-    });
-
-    // use with Get.lazyPut
-    // var controller = Get.find<LoginController>();
-
-    // Get.put
-    // var controller = Get.put(LoginController());
 
     return Scaffold(
       backgroundColor: AppColors.red,
@@ -75,33 +40,6 @@ class _LoginScreenState extends State<LoginScreen> {
             // top widget
             Column(
               children: [
-                Container(
-                  child: GetBuilder<LoginController>(
-                      builder: (_) {
-                        print("GetBuilder build: title1");
-                        return Text(controller.title1);
-                      }),
-                ),
-                Container(
-                  child: GetBuilder<LoginController>(
-                      builder: (_) {
-                        print("GetBuilder build: title4");
-                        return Text(controller.title4);
-                      }),
-                ),
-                Container(
-                  child: GetX<LoginController>(
-                      builder: (_) {
-                        print("GetX build: title2");
-                        return Text(controller.title2.value);
-                      }),
-                ),
-                Container(
-                  child: Obx(() {
-                    print("Obx build: title3");
-                    return Text(controller2.title3.value);
-                  }),
-                ),
                 Container(
                   margin: EdgeInsets.only(
                     top: Get.height * 0.1,
