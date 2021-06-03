@@ -81,7 +81,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     },
                     child: Image.asset(
-                      // imagePathLanguage(languageSelected),
                       controller.getImagePathLanguage(languageSelected),
                       width: 24,
                     ),
@@ -95,12 +94,6 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // String imagePathLanguage(Language language) {
-  //   return language == Language.th
-  //       ? "assets/thai-flag.png"
-  //       : "assets/eng-flag.png";
-  // }
-
   Widget languageMenu({
     required Language language,
     required String label,
@@ -108,7 +101,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return ListTile(
       leading: Image.asset(
-        // imagePathLanguage(language),
         controller.getImagePathLanguage(language),
         width: 24,
       ),
