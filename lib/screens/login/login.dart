@@ -15,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   Language languageSelected = Language.th;
+  var controller = Get.find<LoginController>();
 
   @override
   Widget build(BuildContext putContext) {
@@ -80,7 +81,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       );
                     },
                     child: Image.asset(
-                      imagePathLanguage(languageSelected),
+                      // imagePathLanguage(languageSelected),
+                      controller.getImagePathLanguage(languageSelected),
                       width: 24,
                     ),
                   ),
@@ -93,11 +95,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  String imagePathLanguage(Language language) {
-    return language == Language.th
-        ? "assets/thai-flag.png"
-        : "assets/eng-flag.png";
-  }
+  // String imagePathLanguage(Language language) {
+  //   return language == Language.th
+  //       ? "assets/thai-flag.png"
+  //       : "assets/eng-flag.png";
+  // }
 
   Widget languageMenu({
     required Language language,
@@ -106,7 +108,8 @@ class _LoginScreenState extends State<LoginScreen> {
   }) {
     return ListTile(
       leading: Image.asset(
-        imagePathLanguage(language),
+        // imagePathLanguage(language),
+        controller.getImagePathLanguage(language),
         width: 24,
       ),
       title: Text(label),

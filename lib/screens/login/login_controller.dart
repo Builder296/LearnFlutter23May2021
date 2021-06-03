@@ -1,3 +1,4 @@
+import 'package:example_flutter1/enums/language.dart';
 import 'package:example_flutter1/models/user_model.dart';
 import 'package:example_flutter1/services/user_service.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,12 @@ class LoginController extends GetxController {
   Future<UserModel> getUser() async {
     UserModel user = await UserService().getUser();
     return user;
+  }
+
+  String getImagePathLanguage(Language language) {
+    return language == Language.th
+        ? "assets/thai-flag.png"
+        : "assets/eng-flag.png";
   }
 
 }
