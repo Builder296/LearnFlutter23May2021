@@ -5,6 +5,8 @@ import 'package:example_flutter1/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'login_controller.dart';
+
 enum Language {
   th,
   en,
@@ -166,17 +168,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         backgroundColor: MaterialStateProperty.all(Colors.yellow.shade700),
       ),
-      onPressed: () async {
-        try {
-          UserModel user = await UserService().getUser(); // call service
-          Get.toNamed('/home', arguments: {
-            "name": user.name,
-            "email": user.email,
-          });
-        } catch (error) {
-          print("getUser: $error");
-          // handle exception
-        }
+      onPressed: () {
+        Get.find<LoginController>().onSubmit();
       },
     );
   }
