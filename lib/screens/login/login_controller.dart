@@ -11,15 +11,23 @@ class LoginController extends GetxController {
 
   Future<void> onSubmit() async {
     try {
-      UserModel user = await UserService().getUser(); // call service
-      Get.toNamed('/home', arguments: {
-        "name": user.name,
-        "email": user.email,
-      });
+      UserModel user = await getUser(); // call service
+      gotoHome(user);
     } catch (error) {
       print("getUser: $error");
-      // handle exception
     }
+  }
+
+  void gotoHome(UserModel user) {
+    Get.toNamed('/home', arguments: {
+      "name": user.name,
+      "email": user.email,
+    });
+  }
+
+  Future<UserModel> getUser() async {
+    UserModel user = await UserService().getUser();
+    return user;
   }
 
 }
