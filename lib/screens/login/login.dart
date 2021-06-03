@@ -1,14 +1,10 @@
 import 'package:example_flutter1/const/color.dart';
+import 'package:example_flutter1/enums/language.dart';
 import 'package:example_flutter1/widgets/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'login_controller.dart';
-
-enum Language {
-  th,
-  en,
-}
 
 class LoginScreen extends StatefulWidget {
   LoginScreen({Key? key}) : super(key: key);
