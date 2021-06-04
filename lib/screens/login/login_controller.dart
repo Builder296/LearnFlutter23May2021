@@ -4,7 +4,8 @@ import 'package:example_flutter1/services/user_service.dart';
 import 'package:get/get.dart';
 
 class LoginController extends GetxController {
-  Language languageSelected = Language.th;
+  // Language languageSelected = Language.th;
+  var languageSelected = Rx<Language>(Language.th);
 
   @override
   void onInit() {
@@ -33,13 +34,15 @@ class LoginController extends GetxController {
   }
 
   String getImagePathLanguage(Language language) {
+    print(language);
     return language == Language.th
         ? "assets/thai-flag.png"
         : "assets/eng-flag.png";
   }
 
   setLanguageSelected(Language language) {
-    this.languageSelected = language;
+    // this.languageSelected = language;
+    this.languageSelected.value = language;
   }
 
 }
