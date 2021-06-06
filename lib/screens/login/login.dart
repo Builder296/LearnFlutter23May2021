@@ -68,21 +68,27 @@ class _LoginScreenState extends State<LoginScreen> {
                             languageMenu(
                               language: Language.th,
                               label: "ภาษาไทย",
-                              languageSelected: controller.languageSelected.value,
+                              languageSelected: controller.languageSelected,
                             ),
                             languageMenu(
                               language: Language.en,
                               label: "ภาษาอังกฤษ",
-                              languageSelected: controller.languageSelected.value,
+                              languageSelected: controller.languageSelected,
                             ),
                           ],
                         ),
                       );
                     },
-                    child: Obx(() => Image.asset(
-                      controller.getImagePathLanguage(controller.languageSelected.value),
-                      width: 24,
-                    )),
+                    // child: Obx(() => Image.asset(
+                    //   controller.getImagePathLanguage(controller.languageSelected.value),
+                    //   width: 24,
+                    // )),
+                    child: GetBuilder<LoginController>(
+                        builder: (controller) => Image.asset(
+                            controller.getImagePathLanguage(controller.languageSelected),
+                            width: 24,
+                        ),
+                    ),
                   ),
                 ],
               ),
