@@ -1,9 +1,12 @@
 
+import 'package:example_flutter1/enums/language.dart';
+import 'package:example_flutter1/screens/login/login_controller.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 main() {
-  print('login_controller_test');
-  test('description_test', () {
-    print('function for test');
+  test('should be return flag th when call getImagePathLanguage with Language.th', () {
+    var controller = LoginController();
+    var actual = controller.getImagePathLanguage(Language.th);
+    expect(actual, "assets/thai-flag.png");
   });
 }
