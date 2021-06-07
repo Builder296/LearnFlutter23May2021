@@ -9,4 +9,10 @@ main() {
     var actual = controller.getImagePathLanguage(Language.th);
     expect(actual, "assets/thai-flag.png");
   });
+
+  test('should be return flag en when call getImagePathLanguage with Language.en', () {
+    var controller = LoginController();
+    var actual = controller.getImagePathLanguage(Language.en);
+    expect(actual, "assets/eng-flag.png");
+  });
 }
